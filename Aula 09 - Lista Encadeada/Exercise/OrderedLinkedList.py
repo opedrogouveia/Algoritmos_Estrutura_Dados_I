@@ -12,7 +12,7 @@ class OrderedLinkedList:
             aux = self.head
             while aux:
                 print(aux.data)
-                aux = aux.prox
+                aux = aux.next
 
     def add(self, value):
         nodo = Node(value)
@@ -20,20 +20,20 @@ class OrderedLinkedList:
             self.head = nodo 
         else:
             if nodo.data < self.head.data:
-                nodo.prox = self.head
+                nodo.next = self.head
                 self.head = nodo
             else:
                 prev = self.head
-                aux = self.head.prox
+                aux = self.head.next
                 while aux:
                     if nodo.data < aux.data :
-                        prev.prox = nodo
-                        nodo.prox = aux
+                        prev.next = nodo
+                        nodo.next = aux
                         break
                     prev = aux
-                    aux = aux.prox
+                    aux = aux.next
                 if aux == None:
-                    prev.prox = nodo
+                    prev.next = nodo
         self.show()
 
     def remove(self, value):
@@ -42,19 +42,19 @@ class OrderedLinkedList:
         else:
             found = False
             if value == self.head.data:
-                self.head = self.head.prox
+                self.head = self.head.next
                 found = True
             else:
                 prev = self.head
-                aux = self.head.prox
+                aux = self.head.next
                 while aux:
                     if value == aux.data:
-                        prev.prox = aux.prox
+                        prev.next = aux.next
                         found = True
                         break
                     else:
                         prev = aux
-                        aux = aux.prox
+                        aux = aux.next
         if found:
             print(value, " was found and removed!")     
         else:

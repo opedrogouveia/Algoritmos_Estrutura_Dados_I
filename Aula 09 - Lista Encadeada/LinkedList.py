@@ -7,7 +7,7 @@ class LinkedList:
     def addHead(self, value):
         nodo = Node(value)
         if self.head != None:
-            nodo.prox = self.head
+            nodo.next = self.head
         self.head = nodo
         self.show()
 
@@ -17,9 +17,9 @@ class LinkedList:
             self.head = nodo
         else:
             aux = self.head
-            while aux.prox:
-                aux = aux.prox
-            aux.prox = nodo
+            while aux.next:
+                aux = aux.next
+            aux.next = nodo
         self.show()
 
     def show(self):
@@ -30,27 +30,27 @@ class LinkedList:
             aux = self.head
             while aux:
                 print(aux.data)
-                aux = aux.prox
+                aux = aux.next
 
     def removeHead(self):
         if self.head == None:
             print("Could not be removed!")
         else:
-            self.head = self.head.prox
+            self.head = self.head.next
         self.show()
 
     def removeTail(self):
         if self.head == None:
             print("Could not be removed!")
-        elif self.head.prox == None:
+        elif self.head.next == None:
             self.head = None
         else:
             prev = self.head
-            aux = self.head.prox
-            while aux.prox:
+            aux = self.head.next
+            while aux.next:
                 prev = aux
-                aux = aux.prox
-            prev.prox = None
+                aux = aux.next
+            prev.next = None
         self.show()
     
     def remove(self, value):
@@ -58,18 +58,18 @@ class LinkedList:
         if self.head == None:
             print("None list!")
         elif self.head.data == value:
-            self.head = self.head.prox
+            self.head = self.head.next
             found = True
         else:
             prev = self.head
-            aux = self.head.prox
+            aux = self.head.next
             while aux:
                 if aux.data == value:
-                    prev.prox = aux.prox
+                    prev.next = aux.next
                     found = True
                     break
                 prev = aux
-                aux = aux.prox
+                aux = aux.next
         if not found:
             print("------------------------------------------")
             print(value + " not found.")
