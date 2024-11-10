@@ -9,10 +9,10 @@ class OrderedLinkedList:
         if self.head == None:
             print( "\nNone List!")
         else:
-            aux = self.head
-            while aux:
-                print(aux.data)
-                aux = aux.next
+            current = self.head
+            while current:
+                print(current.data)
+                current = current.next
 
     def add(self, value):
         nodo = Node(value)
@@ -24,15 +24,15 @@ class OrderedLinkedList:
                 self.head = nodo
             else:
                 prev = self.head
-                aux = self.head.next
-                while aux:
-                    if nodo.data < aux.data :
+                current = self.head.next
+                while current:
+                    if nodo.data < current.data :
                         prev.next = nodo
-                        nodo.next = aux
+                        nodo.next = current
                         break
-                    prev = aux
-                    aux = aux.next
-                if aux == None:
+                    prev = current
+                    current = current.next
+                if current == None:
                     prev.next = nodo
         self.show()
 
@@ -46,15 +46,15 @@ class OrderedLinkedList:
                 found = True
             else:
                 prev = self.head
-                aux = self.head.next
-                while aux:
-                    if value == aux.data:
-                        prev.next = aux.next
+                current = self.head.next
+                while current:
+                    if value == current.data:
+                        prev.next = current.next
                         found = True
                         break
                     else:
-                        prev = aux
-                        aux = aux.next
+                        prev = current
+                        current = current.next
         if found:
             print(value, " was found and removed!")     
         else:

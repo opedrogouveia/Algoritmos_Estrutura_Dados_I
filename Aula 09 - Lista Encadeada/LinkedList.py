@@ -16,10 +16,10 @@ class LinkedList:
         if self.head == None:
             self.head = nodo
         else:
-            aux = self.head
-            while aux.next:
-                aux = aux.next
-            aux.next = nodo
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = nodo
         self.show()
 
     def show(self):
@@ -27,10 +27,10 @@ class LinkedList:
         if self.head == None:
             print("None Linked List!")
         else:
-            aux = self.head
-            while aux:
-                print(aux.data)
-                aux = aux.next
+            current = self.head
+            while current:
+                print(current.data)
+                current = current.next
 
     def removeHead(self):
         if self.head == None:
@@ -46,10 +46,10 @@ class LinkedList:
             self.head = None
         else:
             prev = self.head
-            aux = self.head.next
-            while aux.next:
-                prev = aux
-                aux = aux.next
+            current = self.head.next
+            while current.next:
+                prev = current
+                current = current.next
             prev.next = None
         self.show()
     
@@ -62,14 +62,14 @@ class LinkedList:
             found = True
         else:
             prev = self.head
-            aux = self.head.next
-            while aux:
-                if aux.data == value:
-                    prev.next = aux.next
+            current = self.head.next
+            while current:
+                if current.data == value:
+                    prev.next = current.next
                     found = True
                     break
-                prev = aux
-                aux = aux.next
+                prev = current
+                current = current.next
         if not found:
             print("------------------------------------------")
             print(value + " not found.")
