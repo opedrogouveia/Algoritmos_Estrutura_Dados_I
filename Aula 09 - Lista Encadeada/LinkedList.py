@@ -2,21 +2,21 @@ from Node import Node
 
 class LinkedList:
     def __init__(self):
-        self.start = None
+        self.head = None
 
-    def addStart(self, value):
+    def addHead(self, value):
         nodo = Node(value)
-        if self.start != None:
-            nodo.prox = self.start
-        self.start = nodo
+        if self.head != None:
+            nodo.prox = self.head
+        self.head = nodo
         self.show()
 
-    def addLast(self, value):
+    def addTail(self, value):
         nodo = Node(value)
-        if self.start == None:
-            self.start = nodo
+        if self.head == None:
+            self.head = nodo
         else:
-            aux = self.start
+            aux = self.head
             while aux.prox:
                 aux = aux.prox
             aux.prox = nodo
@@ -24,29 +24,29 @@ class LinkedList:
 
     def show(self):
         print("------------------------------------------")
-        if self.start == None:
-            print("\nNone Linked List!")
+        if self.head == None:
+            print("None Linked List!")
         else:
-            aux = self.start
+            aux = self.head
             while aux:
                 print(aux.data)
                 aux = aux.prox
 
-    def removeStart(self):
-        if self.start == None:
+    def removeHead(self):
+        if self.head == None:
             print("Could not be removed!")
         else:
-            self.start = self.start.prox
+            self.head = self.head.prox
         self.show()
 
-    def removeLast(self):
-        if self.start == None:
+    def removeTail(self):
+        if self.head == None:
             print("Could not be removed!")
-        elif self.start.prox == None:
-            self.start = None
+        elif self.head.prox == None:
+            self.head = None
         else:
-            prev = self.start
-            aux = self.start.prox
+            prev = self.head
+            aux = self.head.prox
             while aux.prox:
                 prev = aux
                 aux = aux.prox
@@ -55,14 +55,14 @@ class LinkedList:
     
     def remove(self, value):
         found = False
-        if self.start == None:
+        if self.head == None:
             print("None list!")
-        elif self.start.data == value:
-            self.start = self.start.prox
+        elif self.head.data == value:
+            self.head = self.head.prox
             found = True
         else:
-            prev = self.start
-            aux = self.start.prox
+            prev = self.head
+            aux = self.head.prox
             while aux:
                 if aux.data == value:
                     prev.prox = aux.prox
@@ -71,5 +71,6 @@ class LinkedList:
                 prev = aux
                 aux = aux.prox
         if not found:
-            print("\n" + value + " not found.")
+            print("------------------------------------------")
+            print(value + " not found.")
         self.show()

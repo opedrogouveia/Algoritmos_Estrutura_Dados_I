@@ -2,29 +2,29 @@ from Node import Node
 
 class OrderedLinkedList:
     def __init__(self):
-        self.start = None
+        self.head = None
 
     def show(self):
         print("\n--------------------------------")
-        if self.start == None:
+        if self.head == None:
             print( "\nNone List!")
         else:
-            aux = self.start
+            aux = self.head
             while aux:
                 print(aux.data)
                 aux = aux.prox
 
     def add(self, value):
         nodo = Node(value)
-        if self.start == None:
-            self.start = nodo 
+        if self.head == None:
+            self.head = nodo 
         else:
-            if nodo.data < self.start.data:
-                nodo.prox = self.start
-                self.start = nodo
+            if nodo.data < self.head.data:
+                nodo.prox = self.head
+                self.head = nodo
             else:
-                prev = self.start
-                aux = self.start.prox
+                prev = self.head
+                aux = self.head.prox
                 while aux:
                     if nodo.data < aux.data :
                         prev.prox = nodo
@@ -37,16 +37,16 @@ class OrderedLinkedList:
         self.show()
 
     def remove(self, value):
-        if self.start == None:
+        if self.head == None:
             print("Could not be removed!")
         else:
             found = False
-            if value == self.start.data:
-                self.start = self.start.prox
+            if value == self.head.data:
+                self.head = self.head.prox
                 found = True
             else:
-                prev = self.start
-                aux = self.start.prox
+                prev = self.head
+                aux = self.head.prox
                 while aux:
                     if value == aux.data:
                         prev.prox = aux.prox

@@ -4,14 +4,14 @@ list = LinkedList()
 
 list.show()
 
-list.addStart("Guilherme")
-list.addStart("Daniel")
-list.addLast("João")
-list.addStart("Camila")
-list.addLast("Leonardo")
+list.addHead("Guilherme")
+list.addHead("Daniel")
+list.addTail("João")
+list.addHead("Camila")
+list.addTail("Leonardo")
 
-list.removeStart()
-list.removeLast()
+list.removeHead()
+list.removeTail()
 
 list.remove("Guilherme")
 list.remove("Pedro")
